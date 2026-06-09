@@ -1,3 +1,4 @@
+//AdminServices class to handle admin related operations
 package com.example.demo.services;
 
 import java.util.List;
@@ -5,8 +6,9 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import com.example.demo.entities.*;
-import com.example.demo.repositories.*;
+
+import com.example.demo.entities.Admin;
+import com.example.demo.repositories.AdminRepository;
 
 @Component
 public class AdminServices
