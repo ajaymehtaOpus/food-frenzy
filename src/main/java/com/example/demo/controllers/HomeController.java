@@ -1,3 +1,4 @@
+//HomeController class to handle home page related requests
 package com.example.demo.controllers;
 import java.util.List;
 
