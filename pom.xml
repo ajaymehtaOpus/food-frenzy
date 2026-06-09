@@ -132,7 +132,8 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>${maven-surefire-plugin.version}</version>
                 <configuration>
-                    <argLine>${jacocoArgLine} -Dnet.bytebuddy.experimental=true --add-opens=java.base/java.lang=ALL-UNNAMED</argLine>
+                    <useManifestOnlyJar>false</useManifestOnlyJar>
+                    <argLine>${jacocoArgLine} -Djdk.net.URLClassPath.disableClassPathURLCheck=true -Dnet.bytebuddy.experimental=true --add-opens=java.base/java.lang=ALL-UNNAMED</argLine>
                 </configuration>
             </plugin>
 
@@ -151,6 +152,15 @@
                 </dependencies>
 
                 <configuration>
+                    <!-- Fast demo scope: current delta class is com.example.demo.count.Logic -->
+                    <targetClasses>
+                        <param>com.example.demo.count.*</param>
+                    </targetClasses>
+
+                    <targetTests>
+                        <param>com.example.demo.count.*</param>
+                    </targetTests>
+
                     <outputFormats>
                         <outputFormat>XML</outputFormat>
                         <outputFormat>HTML</outputFormat>
@@ -158,7 +168,12 @@
 
                     <timestampedReports>false</timestampedReports>
 
+                    <threads>4</threads>
+                    <mutationThreshold>0</mutationThreshold>
+                    <coverageThreshold>0</coverageThreshold>
+
                     <jvmArgs>
+                        <jvmArg>-Djdk.net.URLClassPath.disableClassPathURLCheck=true</jvmArg>
                         <jvmArg>-Dnet.bytebuddy.experimental=true</jvmArg>
                         <jvmArg>--add-opens=java.base/java.lang=ALL-UNNAMED</jvmArg>
                     </jvmArgs>
