@@ -1,25 +1,29 @@
+//AdminController class to handle admin related requests
 package com.example.demo.controllers;
 
-import java.security.Principal;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.example.demo.count.*;
-import com.example.demo.entities.*;
-import com.example.demo.loginCredentials.*;
-import com.example.demo.services.*;
-import jakarta.validation.Valid;
+import com.example.demo.count.Logic;
+import com.example.demo.entities.Admin;
+import com.example.demo.entities.Orders;
+import com.example.demo.entities.Product;
+import com.example.demo.entities.User;
+import com.example.demo.loginCredentials.AdminLogin;
+import com.example.demo.loginCredentials.UserLogin;
+import com.example.demo.services.AdminServices;
+import com.example.demo.services.OrderServices;
+import com.example.demo.services.ProductServices;
+import com.example.demo.services.UserServices;
 
 @Controller
 public class AdminController {
