@@ -1,3 +1,4 @@
+//Logic class to calculate total price
 package com.example.demo.count;
 public class Logic
 {
